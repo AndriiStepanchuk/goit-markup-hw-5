@@ -14,7 +14,10 @@ footer background: #2F303A;
     --accent-color: #2196F3;
     --secondary-text-color: #757575;
     --indent: 30px;
-    --items: 3;   
+    --items: 3; 
+    
+    --header-idx: 10;
+    --modal-idx: 100;
 }
 /* Reset start */
 h1,h2,h3,h4,h5,h6,p {
@@ -97,6 +100,14 @@ body {
     border-radius: 4px;
 }
 
+.h3-like {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: calc(16 / 14);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
 /* --LOGO-- */
 .logoweb {
     color: var(--accent-color);
@@ -116,12 +127,23 @@ body {
 }
 
 /* ------------------------HEADER */
-.header {
-    border-bottom: 1px solid #ECECEC;
-    display: flex;
+.page-header {
+    position: fixed;
+    z-index: var(--header-idx);
+    width: 100%;
+    min-height: 80px;
+    top: 0;
+    left: 0;
+    opacity: 0.99;
 
+    border-bottom: 1px solid #ECECEC;
+    background-color: #FFFFFF;
+}
+
+.header {
+    display: flex;
     align-items: center;
-    background-color: #ffffff;
+
     font-size: 14px;
     font-weight: 500;
     line-height: 1.14;
@@ -140,6 +162,21 @@ body {
 
 .nav-list .nav-item + .nav-item {
     margin-left: 50px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item.is-active::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    content: '';
+    height: 4px;
+    width: 100%;
+    background-color: var(--accent-color);
+    border-radius: 2px;
 }
 
 .nav-item-href {
@@ -191,7 +228,7 @@ body {
     text-align: center;
 }
 
-.overlay {
+.header-overlay {
     height: 600px;
     max-width: 1600px;
     margin-left: auto;
@@ -243,9 +280,7 @@ body {
     background-color: #F5F4FA;
 }
 
-
-
-.about-title {
+.advantages-title {
     margin-bottom: 10px;
     font-weight: 700;
     font-size: 14px;
@@ -261,6 +296,8 @@ body {
     color: var(--secondary-text-color)
 }
 
+/* --Whatwedo-- */
+
 .secondary-title {
     margin-bottom: 50px;
     font-weight: 700;
@@ -269,6 +306,30 @@ body {
     text-align: center;
     letter-spacing: 0.03em;
 }
+
+.whatwedo-item {
+    position: relative;
+}
+
+.whatwedo-overlay {
+    position: absolute;
+    min-height: 70px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+    padding-top: 27px;
+    padding-bottom: 27px;
+    
+    background-color: rgba(47, 48, 58, 0.8);
+    opacity: 1;
+}
+
+.whatwedo-text {
+    text-align: center;
+    color: #ffffff;
+}
+
 
 .team-card {
     background-color: #ffffff;
@@ -401,7 +462,38 @@ body {
 }
 
 .project-img-link {
-    display: inline-block;
+    /* display: inline-block; */
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+.project-overlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding: 20px 24px;
+    background-color: rgba(33, 150, 243, 0.9);
+    overflow: auto;
+    opacity: 0;
+}
+
+.project-description {
+    font-size: 18px;
+    line-height: calc(28/18);
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+}
+
+.project-overlay:hover,
+.project-overlay:focus {
+    opacity: 1;
 }
 
 .project-wrapper {
@@ -471,4 +563,53 @@ body {
 .social-link-footer {
     background-color: rgba(255, 255, 255, 0.1);
 }
-/* -------------------------- */
+
+.mb20px {
+    margin-bottom: 20px;
+}
+/* ----------MODAL---------------- */
+.backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: var(--modal-idx);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 528px;
+    height: 581px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+    cursor: pointer;
+}

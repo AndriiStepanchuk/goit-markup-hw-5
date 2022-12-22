@@ -15,11 +15,12 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <header class="header container">
+    <header class="page-header">
+        <div class="container header">
             <nav class="navigation">
                 <a href="./index.html" class="logoweb link">Web<span class="logoheader">Studio</span></a>
                 <ul class="nav-list list">
-                    <li class="nav-item"><a href="./index.html" class="nav-item-href link">Студія</a></li>
+                    <li class="nav-item is-active"><a href="./index.html" class="nav-item-href link">Студія</a></li>
                     <li class="nav-item"><a href="./portfolio.html" class="nav-item-href link">Портфоліо</a></li>
                     <li class="nav-item"><a href="" class="nav-item-href link">Контакти</a></li>
                 </ul>
@@ -36,13 +37,44 @@
                     </svg>+38 096 111 11 11
                 </a>
             </div>
+            <script>
+                const { height: pageHeaderHeight } = document
+                    .querySelector( ".page-header" )
+                    .getBoundingClientRect();
+                document.body.style.paddingTop = `${pageHeaderHeight}px`;
+            </script>
+        </div>
     </header>
     <main class="main"> 
-        <section class="overlay hero-section section">
+        <section class="header-overlay hero-section section">
             <div class="container">
                 <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-                <button type="button" class="hero-btn button">Замовити послугу</button>
-            </div>     
+                <button type="button" class="hero-btn button" data-open-modal>Замовити послугу</button>
+            </div>
+            <div class="backdrop is-hidden" data-backdrop>
+                <div class="modal">
+                    <button type="button" class="modal-close-btn" data-close-modal ><img src="./images/Close.png" alt="close" width="11" height="11"></button>
+                </div>
+            </div>
+            <script>
+                const refs = {
+                    openModalBtn: document.querySelector("[data-open-modal]"),
+                    closeModalBtn: document.querySelector("[data-close-modal]"),
+                    backdrop: document.querySelector("[data-backdrop]"),
+                };
+
+                refs.openModalBtn.addEventListener("click", toggleModal);
+                refs.closeModalBtn.addEventListener("click", toggleModal);
+
+                refs.backdrop.addEventListener("click", logBackdropClick);
+
+                function toggleModal() {
+                    refs.backdrop.classList.toggle("is-hidden");
+                }
+                function logBackdropClick () {
+                    console.log("Це клік в бекдроп")
+                }
+            </script>    
         </section>
         <section class="advantages-section section">
             <div class="container">
@@ -53,7 +85,7 @@
                                 <use href="./images/icons.svg#icon-antenna"></use>
                             </svg>
                         </div>
-                        <h3 class="about-title">УВАГА ДО ДЕТАЛЕЙ</h3>
+                        <h3 class="advantages-title">УВАГА ДО ДЕТАЛЕЙ</h3>
                         <p class="about-description">Ідейні міркування, i навіть початок повсякденної роботи з формування позиції.</p>
                     </li>
                     <li class="card-set-item">
@@ -62,7 +94,7 @@
                                 <use href="./images/icons.svg#icon-clock"></use>
                             </svg>
                         </div>              
-                        <h3 class="about-title">ПУНКТУАЛЬНІСТЬ</h3>
+                        <h3 class="advantages-title">ПУНКТУАЛЬНІСТЬ</h3>
                         <p class="about-description">Завдання організації, особливо рамки і місце навчання кадрів тягне у себе.</p>
                     </li>
                     <li class="card-set-item">
@@ -71,7 +103,7 @@
                                 <use href="./images/icons.svg#icon-diagram"></use>
                             </svg>
                         </div>
-                        <h3 class="about-title">ПЛАНУВАННЯ</h3>
+                        <h3 class="advantages-title">ПЛАНУВАННЯ</h3>
                         <p class="about-description">Так само консультація з широким активом значною мірою зумовлює.</p>
                     </li>
                     <li class="card-set-item">
@@ -80,7 +112,7 @@
                                 <use href="./images/icons.svg#icon-astronaut"></use>
                             </svg>
                          </div>
-                        <h3 class="about-title">СУЧАСНІ ТЕХНОЛОГІЇ</h3>
+                        <h3 class="advantages-title">СУЧАСНІ ТЕХНОЛОГІЇ</h3>
                         <p class="about-description">Значимість цих проблем настільки очевидна, що реалізація планових завдань.</p>
                     </li>
                 </ul>
@@ -90,9 +122,24 @@
             <div class="whatwedo-img container">
                 <h2 class="secondary-title">Чим ми займаємося</h2>
                 <ul class="card-set list">
-                    <li class="card-set-item"><img src="./images/main/about_us_1-min.jpg" alt="img1" width="370" height="294"></li>
-                    <li class="card-set-item"><img src="./images/main/about_us_2-min.jpg" alt="img1" width="370" height="294"></li>
-                    <li class="card-set-item"><img src="./images/main/about_us_3-min.jpg" alt="img1" width="370" height="294"></li>
+                    <li class="card-set-item whatwedo-item">
+                        <img src="./images/main/about_us_1-min.jpg" alt="img1" width="370" height="294">
+                        <div class="whatwedo-overlay">
+                            <p class="whatwedo-text h3-like">Десктопні додатки</p>
+                        </div>
+                    </li>
+                    <li class="card-set-item whatwedo-item">
+                        <img src="./images/main/about_us_2-min.jpg" alt="img1" width="370" height="294">
+                        <div class="whatwedo-overlay">
+                            <p class="whatwedo-text h3-like">Мобільні додатки</p>
+                        </div>
+                    </li>
+                    <li class="card-set-item whatwedo-item">
+                        <img src="./images/main/about_us_3-min.jpg" alt="img1" width="370" height="294">
+                        <div class="whatwedo-overlay">
+                            <p class="whatwedo-text h3-like">Дизайнерські рішення</p>
+                        </div>
+                    </li>
                 </ul>   
             </div>
         </section>
@@ -314,7 +361,7 @@
                 </address>
             </div>
             <div class="footer-socials">
-                <h3 class="about-title">приєднуйтесь</h3>
+                <h3 class="h3-like mb20px">приєднуйтесь</h3>
                 <ul class="socials list">
                     <li class="socials-item">
                         <a class="social-link-footer socials-link link" href="https://instagram.com" target="_blank" rel="noopener no referrer" aria-label="instagram icon">

@@ -1,6 +1,6 @@
-# goit-markup-hw-02
-portfolio
-https://andriistepanchuk.github.io/goit-markup-hw-02/
+# goit-markup-hw-05
+
+https://andriistepanchuk.github.io/goit-markup-hw-5
 
 Создай репозиторий goit-markup-hw-05.
 Склонируй созданный репозиторий и скопируй в него файлы предыдущей работы.

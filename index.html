@@ -48,6 +48,40 @@
             <div class="backdrop is-hidden" data-backdrop>
                 <div class="modal">
                     <button type="button" class="modal-close-btn" data-close-modal ><img src="./images/Close.png" alt="close" width="11" height="11"></button>
+                    <p class="modal-form-title">Залиште свої дані, ми вам передзвонимо</p>
+                    <form class="modal-form">
+                        <div class="modal-form-group" role="group">
+                            <label class="modal-form-label" for="user_name">Ім'я</label>
+                            <div class="modal-form-wrapper">
+                                <input class="modal-form-field" type="text" name="user_name" id="user_name">
+                                <svg class="modal-form-icon" width="20" height="20">
+                                    <use href="./images/icons.svg#"></use>
+                                </svg>
+                            </div>
+                            <label class="modal-form-label" for="user_phone">Телефон</label>
+                            <div class="modal-form-wrapper">
+                                <input class="modal-form-field" type="tel" name="user_phone" id="user_phone">
+                                <svg class="modal-form-icon" width="20" height="20">
+                                    <use href="./images/icons.svg#icon-smartphone"></use>
+                                </svg>
+                            </div>
+                            <label class="modal-form-label" for="user_email">Пошта</label>
+                            <div class="modal-form-wrapper">
+                                <input class="modal-form-field" type="email" name="user_email" id="user_email">
+                                <svg class="modal-form-icon" width="20" height="20">
+                                    <use href="./images/icons.svg#icon-envelope"></use>
+                                </svg>
+                            </div>
+                            <label class="modal-form-label" for="user_comment">Коментар</label>
+                            <br>
+                            <textarea class="modal-form-comment" name="user_comment" placeholder="Введіть текст" id="user_comment" cols="30" rows="7"></textarea>
+                        </div>
+                        <div class="" role="group">
+                            <input class="modal-form-field" type="checkbox" name="user_agreement" id="user_agreement">
+                            <label class="modal-form-agreement"for="user_agreement">Погоджуюся з розсилкою та приймаю <a href="">Умови договору</a></label> 
+                            <button class="hero-btn button" type="submit">Відправити</button> 
+                        </div>
+                    </form>    
                 </div>
             </div>
         </section>
@@ -367,6 +401,13 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+            <div class="">
+                <form class="form-sign" action="">
+                    <h3 class="h3-like mb20px">Підпишіться на розсилку</h3>
+                    <input class="form-sign-field" type="email" placeholder="E-mail" name="email" id="email">
+                    <button class="hero-btn button" type="submit">Підписатися</button> 
+                </form>
             </div>
         </div>
     </footer>
